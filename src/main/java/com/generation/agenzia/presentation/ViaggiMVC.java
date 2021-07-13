@@ -32,13 +32,21 @@ public class ViaggiMVC {
 		Viaggio v = vs.findViaggioById(id);
 		
 		m.addAttribute("viaggio", v);
-		
+//		System.out.println(v);
 		return "dettaglio";
 	}
 	
 	
 	
 	
+	@RequestMapping("/{id}/pagamento")
+	public String pagamento(@PathVariable("id") int id, Model m) {
+		Viaggio v = vs.findViaggioById(id);
+		
+		m.addAttribute("viaggio", v);
+
+		return "pagamento";
+	}
 	
 	
 	
