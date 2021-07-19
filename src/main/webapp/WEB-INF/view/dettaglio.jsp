@@ -1,6 +1,6 @@
 <%@ include file="header.jsp"%>
 
-<a href="/mvc/viaggi/">Elenco</a>
+<a href="/mvc/viaggi/" class="btn btn-info" type="submit">Elenco</a>
 
 <h1>Dettaglio viaggio</h1>
 
@@ -26,7 +26,7 @@
     <div id="carouselExampleFade" class="col-9 align-self-center carousel carousel-dark slide carousel-fade"
         data-bs-ride="carousel">
         <div id="divImg" class="carousel-inner">
-            <div class="carousel-item active">
+            <!-- <div class="carousel-item active">
                 <img src="https://source.unsplash.com/1920x1080/?rome" class="d-block w-100 img-fluid" alt="...">
             </div>
             <div class="carousel-item">
@@ -38,9 +38,9 @@
             </div>
             <div class="carousel-item">
                 <img src="https://source.unsplash.com/1920x1080/?italy" class="d-block w-100 img-fluid" alt="...">
-            </div>
+            </div> -->
         </div>
-        <button id="nextBtn" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+        <!-- <button id="nextBtn" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
             data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
@@ -48,7 +48,7 @@
         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
-        </button>
+        </button> -->
     </div>
 
     <div class="col align-self-center w-100 d-none d-md-block"></div>

@@ -11,23 +11,23 @@
 </div>
 
 <div class="container">
-    <form class="row g-3 needs-validation" novalidate action="" method="get">
+    <form class="row g-3 needs-validation" novalidate action="/mvc/viaggi/${viaggio.id}/conferma">
 
         <div class="row g-3">
             <div class="row">
                 <div class="col-md-6">
                     <label for="nome" class="form-label text-muted fst-italic">Nome:</label>
-                    <input type="text" class="form-control" id="validationCustom01" required>
+                    <input type="text" class="form-control" id="validationCustom01" placeholder="Virgilio" required>
                 </div>
                 <div class="col-md-6">
                     <label for="cognome" class="form-label text-muted fst-italic">Cognome:</label>
-                    <input type="text" class="form-control" id="cognome" required>
+                    <input type="text" class="form-control" id="cognome" placeholder="Collura" required>
                 </div>
             </div>
 
             <div class="col">
                 <label for="inputEmail4" class="form-label text-muted fst-italic">Email</label>
-                <input type="email" class="form-control" id="inputEmail4" required>
+                <input type="email" class="form-control" id="inputEmail4" placeholder="virgilio.collura@virgilio.it" required>
                 <div class="invalid-feedback">
                     Email non valida.
                 </div>
@@ -70,32 +70,46 @@
                     </div>
                 </div>
             </div>
+            <div class="col-6"> </div>
         </div>
-
-
+    </form>
+    <form action="/mvc/viaggi/${viaggio.id}/conferma" method="post" class="row g-3 needs-validation" novalidate>
 
         <div class="row justify-content-between" id="rowCost">
             <div class="col-2 col-lg-1">
-                <label for="nPersone" class="form-label text-muted fst-italic">Partecipanti</label>
-                <input type="number" value="1" min="1" max="10" step="1" class="form-control" id="nPersone">
+                <label for="partecipanti" class="form-label text-muted fst-italic">Partecipanti</label>
+                <input type="number" value="1" min="1" max="10" step="1" class="form-control" name="partecipanti"
+                    id="partecipanti">
+
+
+                <input type="hidden" name="viaggio_id" value="${viaggio.id}">
+                <input type="hidden" name="utente_id" value="1">
+                <input type="hidden" name="id" value="0">
+
+
+
             </div>
-
-            <div class="col-4">
-                <label for="totaleCosto" class="form-label text-muted fst-italic">Totale costo</label>
-                <p class="form-control pe-none" id="totale"></p>
-            </div>
-
-            <div class="col-6"> </div>
-
         </div>
 
-
-    </form>
-
-    <div class="col-2">
         <button class="btn btn-primary" type="submit">Acquista</button>
-        <input type="button" class="btn btn-secondary" value="Annulla" onclick="location.href='/mvc/viaggi/'">
+        <input type="button" class="btn btn-secondary" value="Annulla" onclick="location.href='/mvc/viaggi/uscita'">
+        
+    </form>
+    <div class="col-2">
+        <label for="totaleCosto" class="form-label text-muted fst-italic">Totale costo</label>
+        <p class="form-control pe-none" id="totale"></p>
     </div>
+
+    <div class="col-6"> </div>
+
+
+
+
+    <!-- <div class="col-2">
+        <button class="btn btn-primary" type="submit">Acquista</button>
+        <a href="/mvc/viaggi/${viaggio.id}/conferma" class="btn btn-primary" type="submit"> Acquista </a>
+        <input type="button" class="btn btn-secondary" value="Annulla" onclick="location.href='/mvc/viaggi/uscita'">
+    </div> -->
 
 </div>
 
@@ -109,7 +123,7 @@
     <div id="carouselExampleFade" class="col-9 align-self-center carousel carousel-dark slide carousel-fade"
         data-bs-ride="carousel">
         <div id="divImg" class="carousel-inner">
-            <div class="carousel-item active">
+            <!-- <div class="carousel-item active">
                 <img src="https://source.unsplash.com/1920x1080/?rome" class="d-block w-100 img-fluid" alt="...">
             </div>
             <div class="carousel-item">
@@ -121,9 +135,9 @@
             </div>
             <div class="carousel-item">
                 <img src="https://source.unsplash.com/1920x1080/?italy" class="d-block w-100 img-fluid" alt="...">
-            </div>
+            </div> -->
         </div>
-        <button id="nextBtn" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+        <!-- <button id="nextBtn" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
             data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
@@ -131,7 +145,7 @@
         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
-        </button>
+        </button> -->
     </div>
 
     <div class="col align-self-center w-100 d-none d-md-block"></div>
@@ -152,7 +166,7 @@
 
 
     function modifica() {
-        let elPersone = document.getElementById('nPersone').value;
+        let elPersone = document.getElementById('partecipanti').value;
         console.log(elPersone);
         let costo = "${viaggio.prezzo}";
         elTot.innerHTML = costo * elPersone + " Euro";

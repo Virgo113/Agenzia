@@ -9,15 +9,16 @@
 
     <table class="table table-dark table-striped" id="elenco">
         <tr>
-            <th>Destinazione</th>
-            <th>Durata (gg)</th>
-            <th>Prezzo</th>
+            <th style="text-align: center;" >Destinazione</th>
+            <th style="text-align: center;" >Durata (gg)</th>
+            <th style="text-align: center;" >Prezzo</th>
         </tr>
 
         <% for(Viaggio v : (List<Viaggio>) request.getAttribute("viaggi")) {%>
         <tr>
-            <td><a href="/mvc/viaggi/<%= v.getId() %>"><%= v.getDestinazione() %></a></td>
-            <td><%= v.getDurata() %></td><td><%= v.getPrezzo() %> a persona</td>
+            <td style="text-align: center;" ><em><strong><a style="color:#96B3FB; text-decoration:none" href="/mvc/viaggi/<%= v.getId() %>"><%= v.getDestinazione() %></strong></em></a></td>
+            <td style="text-align: center;" ><%= v.getDurata() %></td>
+            <td style="text-align: center;" ><%= v.getPrezzo() %> a persona</td>
         </tr>
         <%} %>
 

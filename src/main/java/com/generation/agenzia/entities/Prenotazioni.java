@@ -10,7 +10,6 @@ public class Prenotazioni {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-
 	private int id;
 
 	private int utente_id, viaggio_id, partecipanti;
